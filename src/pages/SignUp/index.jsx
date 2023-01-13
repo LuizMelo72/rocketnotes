@@ -7,6 +7,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 import { Container, Form, Background } from "./style";
+import { ButtonText } from '../../components/ButtonText';
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -14,6 +15,10 @@ export function SignUp() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  function handleBack(){
+    navigate(-1);
+  }
 
   function handleSignUp(){
     if (!name || !email || !password) {
@@ -69,9 +74,12 @@ export function SignUp() {
 
         <Button title="Cadastrar" onClick={ handleSignUp }/>
          
-        <Link to='/'>
-          Voltar para o login
-        </Link>
+        <ButtonText 
+          title="Voltar para o login" 
+          onClick={handleBack}  
+        />
+
+        
 
       </Form>
 
